@@ -3,8 +3,7 @@
 TARGET=/home/pi/ferrofluidspeaker
 INC=""
 LIBPATH=""
-BUILDOUT=/home/kyle/Documents/ferrofluidSpeaker/Build/Out/
 
-echo "Copying main.exe"
-
-scp $BUILDOUT/ferrofluid.exe pi@raspberrypi.local:$TARGET
+echo "Copying ferrofluid.exe to pi..."
+scp Out/ferrofluid.exe pi@raspberrypi.local:$TARGET
+echo "Finished"
