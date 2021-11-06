@@ -1,18 +1,23 @@
 *** Ferrofluid Speaker Project ***
+
 Repository for Ferrofluid speaker project
 
 *** Installing GPIO library ***
+
 http://abyz.me.uk/rpi/pigpio/index.html
+
 Library used for general peripheral control 
 
 1. Follow the above link and install most recent pigpio on target raspberry device
 
 *** Github link to toolchain ***
+
 https://github.com/Pro/raspi-toolchain
 
 1. follow instructions to install pre-built toolchain locally on your computer
 
 *** Building and Compiling ***
+
 NOTE :  If using Visual Studio Code the commands listed below can be run through tasks.json with
         CTRL+SHIFT+P and selecting "Tasks: Run Tasks" then choosing the desired command
 
