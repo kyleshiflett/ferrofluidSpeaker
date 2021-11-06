@@ -23,25 +23,6 @@ int LedProperties::getLedIndex(void)
 
 void LedProperties::setLedIndex(int index)
 {
-    // temp testing funciton
-    if (0 <= index && index <= 53)
-    {
-        int err = gpioInitialise();
-        std::cout << "initialize return " << err << std::endl;
-
-        err = gpioSetMode(index, PI_OUTPUT);
-
-        std::cout << "setmode return " << err << std::endl;
-
-        // for (int i = 0; i < 100; i++)
-        // {
-        //     gpioWrite(index,0);
-        //     time_sleep(0.1);
-        //     gpioWrite(index,1);
-        //     time_sleep(0.1);
-        // }
-    }
-
     this->currentIndex = index;
 }
 
