@@ -2,36 +2,37 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label":"Build CMake",
+			"label": "Build CMake",
 			"type": "shell",
 			"command": "mkdir -p Build && cd Build && cmake -DCMAKE_TOOLCHAIN_FILE=../Toolchain-rpi.cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo ../",
 			"options": {
-			"env": {
-				"RASPBIAN_ROOTFS":"$HOME/rpi/rootfs",
-				"PATH":"/opt/cross-pi-gcc/bin:/opt/cross-pi-gcc/libexec/gcc/arm-linux-gnueabihf/8.3.0:${env:PATH}",
-				"RASPBERRY_VERSION":"1"
+				"env": {
+					"RASPBIAN_ROOTFS": "$HOME/rpi/rootfs",
+					"PATH": "/opt/cross-pi-gcc/bin:/opt/cross-pi-gcc/libexec/gcc/arm-linux-gnueabihf/8.3.0:${env:PATH}",
+					"RASPBERRY_VERSION": "1"
 				}
 			}
 		},
 		{
-			"label":"Build Binaries",
+			"label": "Build Binaries",
 			"type": "shell",
-			"command": "cd Build && make -j",
+			"command": "cd Build && make -j"
 		},
 		{
-			"label":"Clean Binaries",
+			"label": "Clean Binaries",
 			"type": "shell",
 			"command": "cmake --build Build --target clean",
+			"problemMatcher": []
 		},
 		{
-			"label":"Clean All",
+			"label": "Clean All",
 			"type": "shell",
-			"command": "rm -fr Build",
+			"command": "rm -fr Build"
 		},
 		{
-			"label":"Push to Pi",
+			"label": "Push to Pi",
 			"type": "shell",
-			"command": "./pushBuildFilesThroughscp.sh",
+			"command": "./pushBuildFilesThroughscp.sh"
 		}
 	]
 }
