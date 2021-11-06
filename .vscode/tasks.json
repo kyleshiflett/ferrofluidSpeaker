@@ -2,14 +2,31 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label":"Build ferrofluid",
+			"label":"Build CMake",
 			"type": "shell",
-			"command": "make",
+			"command": "mkdir -p Build && cmake -DCMAKE_TOOLCHAIN_FILE=../Toolchain-rpi.cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo ../Source",
+			"options": {
+			"env": {
+				"RASPBIAN_ROOTFS":"$HOME/rpi/rootfs",
+				"PATH":"/opt/cross-pi-gcc/bin:/opt/cross-pi-gcc/libexec/gcc/arm-linux-gnueabihf/8.3.0:${env:PATH}",
+				"RASPBERRY_VERSION":"1"
+				}
+			}
 		},
 		{
-			"label":"Clean ferrofluid",
+			"label":"Build Binaries",
 			"type": "shell",
-			"command": "make clean",
+			"command": "Build/make",
+		},
+		{
+			"label":"Clean",
+			"type": "shell",
+			"command": "cmake --build Build --target clean",
+		},
+		{
+			"label":"Clean All",
+			"type": "shell",
+			"command": "rm -fr Build",
 		},
 		{
 			"label":"Push to Pi",
