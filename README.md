@@ -23,13 +23,17 @@ NOTE :  If using Visual Studio Code the commands listed below can be run through
 
 *** Compiling with toolchain ***
 
-1. Navigate to the build directory
-2. Export the following environmental variables...
+1. Create build out directory (must be named "Build")
+        mkdir <Main Project Folder>/Build
+        
+2. Navigate to <Main Project Folder>/Build
+
+3. Export the following environmental variables...
         export RASPBIAN_ROOTFS=$HOME/rpi/rootfs
         export PATH=/opt/cross-pi-gcc/bin:/opt/cross-pi-gcc/libexec/gcc/arm-linux-gnueabihf/8.3.0:$PATH
         export RASPBERRY_VERSION=1
 
-3. Run the CMake command
+4. Run the CMake command
         cmake -DCMAKE_TOOLCHAIN_FILE=$../Toolchain-rpi.cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo ../Source
 
 NOTE:   After compiling with CMake the generated makefiles will not need to be updated until a new file
