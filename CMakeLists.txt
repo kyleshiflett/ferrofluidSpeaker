@@ -1,0 +1,15 @@
+cmake_minimum_required (VERSION 3.10.2)
+project (ferrofluid)
+
+# Required for mraspberry pi toolchain
+find_package(Threads REQUIRED)
+
+# Include header file directory into the build
+include_directories(include)
+
+# add all .cpp files into the build and add them to SOURCES variable
+# SOURCES will now contain all .cpp files required for building
+file(GLOB SOURCES "Sources/*.cpp")
+
+# Describe target binary name and dependencies needed to build it
+add_executable(ferrofluid.exe ${SOURCES})
