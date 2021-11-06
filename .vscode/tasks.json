@@ -4,7 +4,7 @@
 		{
 			"label":"Build CMake",
 			"type": "shell",
-			"command": "mkdir -p Build && cmake -DCMAKE_TOOLCHAIN_FILE=../Toolchain-rpi.cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo ../Source",
+			"command": "mkdir -p Build && cd Build && cmake -DCMAKE_TOOLCHAIN_FILE=../Toolchain-rpi.cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo ../Source",
 			"options": {
 			"env": {
 				"RASPBIAN_ROOTFS":"$HOME/rpi/rootfs",
@@ -16,7 +16,7 @@
 		{
 			"label":"Build Binaries",
 			"type": "shell",
-			"command": "Build/make",
+			"command": "cd Build && make -j",
 		},
 		{
 			"label":"Clean",
