@@ -48,4 +48,8 @@ void LedProperties::setLedColor(std::string color)
     this->colorarr[this->currentIndex] = color;
 }
 
+void LedProperties::test(void)
+{
+    
+} 
         

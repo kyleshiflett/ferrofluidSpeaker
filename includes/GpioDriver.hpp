@@ -6,12 +6,17 @@
 
 class GpioDriver
 {
+    
     public:
-
-    // Constructor
-    GpioDriver();
+    // returns singular instance of GpioDriver
+    static GpioDriver * getSingletonInstance(void);
     void testGpioPin(int gpioPin);
     bool cleanUpPins();
+
+    private:
+    // Constructor for singleton class
+    
+    GpioDriver();
 };
 
 #endif

@@ -10,7 +10,7 @@ using namespace std;
 int main(int argc, char * argv[])
 {
   LedProperties Neo;
-  GpioDriver GpioDrv;
+  GpioDriver * S_GpioDrv = GpioDriver::getSingletonInstance();
   int indexArg = 0;
 
   if (argc >= 2)
@@ -24,9 +24,9 @@ int main(int argc, char * argv[])
     cout << "index: " << Neo.getLedIndex() << " color: " << Neo.getLedColor(i) << endl;
   }
 
-  GpioDrv.testGpioPin(indexArg);
+  S_GpioDrv->testGpioPin(indexArg);
 
 
-  GpioDrv.cleanUpPins();
+  S_GpioDrv->cleanUpPins();
   return 0;
 }

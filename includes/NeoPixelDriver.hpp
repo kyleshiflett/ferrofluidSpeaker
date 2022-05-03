@@ -54,6 +54,8 @@ class LedProperties
      * @param color desired color to set at current index
      */
     void setLedColor(std::string color);
+
+    void test(void);
 };
 
 #endif
